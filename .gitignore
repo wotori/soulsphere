@@ -9,7 +9,7 @@ babel.config.js
 .cache/
 
 #parcelbuild ignore
-# engine/polyapp.js
+engine/polyapp.js
 
 ##default npm .gitignore
 # Logs
