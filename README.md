@@ -1,4 +1,4 @@
-# Ekza Atom
+# Soul Sphere
 [WebGL](https://en.wikipedia.org/wiki/WebGL) user visualisation interface based on [three.js](https://github.com/mrdoob/three.js/) library
 
 ### Run SoulSphere App
