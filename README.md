@@ -1,8 +1,6 @@
 # Ekza Atom
 [WebGL](https://en.wikipedia.org/wiki/WebGL) user visualisation interface based on [three.js](https://github.com/mrdoob/three.js/) library
 
-![gif](https://s7.gifyu.com/images/2020-07-25-06-41-30.gif)
-
 ### Run SoulSphere App
 
 #### testing environment with hot reloading <br>
