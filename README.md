@@ -17,7 +17,7 @@
 ``
 
 #### Preview the SoulSphere
-current version at [heroku](http://soulsphere.herokuapp.com/)
+current version at [heroku](http://soulsphere.herokuapp.com/) <br>
 [video presentation](https://vimeo.com/383682865)
 
 v 1.0.0
