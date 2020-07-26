@@ -15,7 +15,7 @@ let getUsers = new XMLHttpRequest();
 var timeNow = new Date();
 console.log(timeNow);
 
-getUsers.onreadystatechange = function() {
+getUsers.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
     USERS = JSON.parse(this.responseText); //Cache pics for existing rows
 
@@ -27,17 +27,16 @@ getUsers.onreadystatechange = function() {
     console.time();
 
     for (let picindex = 0; picindex <= 62; picindex++)
-      USERSexist.indexOf(picindex) == -1
-        ? USERS.push({
-            //Load all 62 textures
-            name: "id" + picindex,
-            location: "London",
-            pic: picindex,
-            fetchedPic: newFetchedPic(picindex),
-            audio:
-              "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
-          })
-        : void null;
+      USERSexist.indexOf(picindex) == -1 ?
+      USERS.push({
+        //Load all 62 textures
+        name: "id" + picindex,
+        location: "London",
+        pic: picindex,
+        fetchedPic: newFetchedPic(picindex),
+        audio: "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
+      }) :
+      void null;
 
     console.timeEnd();
     USERS.sort((a, b) => a.pic - b.pic); // console.table(USERS);
@@ -76,8 +75,7 @@ function startSphere() {
   var alphaTOF = true;
   var TorF = true;
   $(".sphere-section").css({
-    background:
-      "radial-gradient(circle, rgb(39, 38, 52) 0%, rgba(22,22,39,1) 100%);"
+    background: "radial-gradient(circle, rgb(39, 38, 52) 0%, rgba(22,22,39,1) 100%);"
   });
   console.log(dayTime, curMin);
 
@@ -194,8 +192,8 @@ function startSphere() {
       camTweenOut && camTweenOut.stop();
       preSelected &&
         ((preSelected.dissolving = true),
-        preSelected.camTweenFocusMe.stop(),
-        (preSelected.resizingChain = true));
+          preSelected.camTweenFocusMe.stop(),
+          (preSelected.resizingChain = true));
       preSelected = Selected;
       Selected.dissolving = false;
       focusPlaneName = Selected.name; //camFocusme
@@ -215,8 +213,8 @@ function startSphere() {
 
       Selected &&
         (Selected.camTweenFocusMe.stop(),
-        (Selected.dissolving = true),
-        (Selected.resizingChain = true)); //Tweens activate
+          (Selected.dissolving = true),
+          (Selected.resizingChain = true)); //Tweens activate
 
       camTweenOut.start();
       Global.map((i, j) => {
@@ -261,8 +259,7 @@ function startSphere() {
   };
 
   let camTweenOut = new TWEEN.Tween(camera.position)
-    .to(
-      {
+    .to({
         x: 0,
         y: 0,
         z: 9
@@ -289,11 +286,21 @@ function startSphere() {
   document.body.appendChild(renderer.domElement);
 
   const parameters = [
-    [[1, 1, 1], 0.9],
-    [[0.95, 1, 0.5], 1],
-    [[0.9, 1, 0.5], 1.4],
-    [[0.85, 1, 0.5], 1.1],
-    [[1, 1, 1], 0.8]
+    [
+      [1, 1, 1], 0.9
+    ],
+    [
+      [0.95, 1, 0.5], 1
+    ],
+    [
+      [0.9, 1, 0.5], 1.4
+    ],
+    [
+      [0.85, 1, 0.5], 1.1
+    ],
+    [
+      [1, 1, 1], 0.8
+    ]
   ];
   const parameterCount = parameters.length;
   let DustGeometry = new THREE.Geometry();
@@ -345,7 +352,9 @@ function startSphere() {
   //SoulSphere wireFrame // colors: ['white' & #E7CEA9] [0.04, 100]
   let wireOp;
   let wirePresets = [0.04, 0.3, "white", "#E7CEA9"];
-  let lineMat = new THREE.LineBasicMaterial({ color: wirePresets[3] });
+  let lineMat = new THREE.LineBasicMaterial({
+    color: wirePresets[3]
+  });
   let geometryWire = new THREE.IcosahedronBufferGeometry(2.2, 1);
   let wireframe = new THREE.WireframeGeometry(geometryWire);
   let line = new THREE.LineSegments(wireframe, lineMat);
@@ -372,7 +381,7 @@ function startSphere() {
     depthWrite: false,
     color: "white"
   });
-  pointGeo.vertices.forEach(function(vertex) {
+  pointGeo.vertices.forEach(function (vertex) {
     vertex.x += Math.random();
     vertex.y += Math.random();
     vertex.z += Math.random();
@@ -438,23 +447,21 @@ function startSphere() {
   CosmoDust.children.map(i => {
     CosmoDust.opacity0.push(
       new TWEEN.Tween(i.material)
-        .to(
-          {
-            opacity: 0
-          },
-          2000
-        )
-        .easing(TWEEN.Easing.Exponential.Out)
+      .to({
+          opacity: 0
+        },
+        2000
+      )
+      .easing(TWEEN.Easing.Exponential.Out)
     );
     CosmoDust.opacity1.push(
       new TWEEN.Tween(i.material)
-        .to(
-          {
-            opacity: 1
-          },
-          2000
-        )
-        .easing(TWEEN.Easing.Exponential.Out)
+      .to({
+          opacity: 1
+        },
+        2000
+      )
+      .easing(TWEEN.Easing.Exponential.Out)
     );
   });
 
@@ -471,8 +478,7 @@ function startSphere() {
   let Global = [Globus.children[0]];
   Global.map((i, j) => {
     i.to0 = new TWEEN.Tween(i.material)
-      .to(
-        {
+      .to({
           opacity: 0
         },
         1500
@@ -480,8 +486,7 @@ function startSphere() {
       .easing(TWEEN.Easing.Exponential.Out)
       .onComplete(() => (i.visible = false));
     i.to1 = new TWEEN.Tween(i.material)
-      .to(
-        {
+      .to({
           opacity: 1
         },
         2000
@@ -492,20 +497,28 @@ function startSphere() {
   });
 
   line_to0 = new TWEEN.Tween(line.material)
-    .to({ opacity: 0 }, 1500)
+    .to({
+      opacity: 0
+    }, 1500)
     .easing(TWEEN.Easing.Exponential.Out)
     .onComplete(() => (line.visible = false));
   line_to1 = new TWEEN.Tween(line.material)
-    .to({ opacity: wireOp }, 2000)
+    .to({
+      opacity: wireOp
+    }, 2000)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .onStart(() => (line.visible = true));
 
   points_to0 = new TWEEN.Tween(pointsClouds.material)
-    .to({ opacity: 0 }, 1500)
+    .to({
+      opacity: 0
+    }, 1500)
     .easing(TWEEN.Easing.Exponential.Out)
     .onComplete(() => (pointMat.visible = false));
   points_to1 = new TWEEN.Tween(pointsClouds.material)
-    .to({ opacity: pointOp }, 2000)
+    .to({
+      opacity: pointOp
+    }, 2000)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .onStart(() => (pointMat.visible = true));
 
@@ -527,9 +540,9 @@ function startSphere() {
       PLANE_GROUP.children,
       true
     );
-    sectsWithPlanes[0]
-      ? (document.body.style.cursor = "pointer")
-      : (document.body.style.cursor = "default");
+    sectsWithPlanes[0] ?
+      (document.body.style.cursor = "pointer") :
+      (document.body.style.cursor = "default");
 
     if (focusPlaneName == -1) {
       //Home view
@@ -539,22 +552,22 @@ function startSphere() {
         //cursor on a point
         if (RUNNING_INDEXES.indexOf(sectsWithPoints[0].index) == -1) {
           //Check point for existence
-          picindex < 61
-            ? picindex++
-            : ((picindex = 0), (looped_picindex = true)); // log(RUNNING_INDEXES);
+          picindex < 61 ?
+            picindex++
+            :
+            ((picindex = 0), (looped_picindex = true)); // log(RUNNING_INDEXES);
 
           RUNNING_INDEXES.push(sectsWithPoints[0].index);
           let newPlane = new PlaneAvatar(
             PLANE_GROUP,
             sectsWithPoints[0].index,
-            !looped_picindex
-              ? USERS[picindex]
-              : Object.assign(USERS[picindex], {
-                  name: "id" + sectsWithPoints[0].index,
-                  location: "London",
-                  audio:
-                    "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
-                })
+            !looped_picindex ?
+            USERS[picindex] :
+            Object.assign(USERS[picindex], {
+              name: "id" + sectsWithPoints[0].index,
+              location: "London",
+              audio: "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
+            })
           );
           newPlane.scale.set(0.001, 0.001, 0.001);
           newPlane.enlargeTween.start();
@@ -563,9 +576,9 @@ function startSphere() {
           let planeToEnlarge = PLANE_GROUP.children.find(
             e => e.name == sectsWithPoints[0].index
           );
-          planeToEnlarge != undefined
-            ? (planeToEnlarge.dissolving = false)
-            : void null;
+          planeToEnlarge != undefined ?
+            (planeToEnlarge.dissolving = false) :
+            void null;
         }
       }
 
@@ -601,17 +614,16 @@ function startSphere() {
       this.info = {
         name: oINFO.name,
         location: oINFO.location,
-        audio: oINFO.audio
-          ? oINFO.audio
-          : "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
+        audio: oINFO.audio ?
+          oINFO.audio :
+          "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
       }; // console.table(this.info)
 
       this.dissolving = true; //Dissolving by default
 
       this.resizingChain = true;
       this.dissolveTween = new TWEEN.Tween(this.scale)
-        .to(
-          {
+        .to({
             x: 0.001,
             y: 0.001,
             z: 0.001
@@ -620,8 +632,7 @@ function startSphere() {
         )
         .easing(TWEEN.Easing.Quadratic.Out);
       this.enlargeTween = new TWEEN.Tween(this.scale)
-        .to(
-          {
+        .to({
             x: 1,
             y: 1,
             z: 1
@@ -654,8 +665,7 @@ function startSphere() {
 
     camFocusMe(t) {
       return (this.camTweenFocusMe = new TWEEN.Tween(camera.position)
-        .to(
-          {
+        .to({
             x: this.position.x + 0.4,
             y: this.position.y,
             z: this.position.z + 6
@@ -666,9 +676,9 @@ function startSphere() {
     }
 
     updateSize() {
-      return this.dissolving
-        ? (this.enlargeTween.stop(), this.dissolveTween.start())
-        : (this.dissolveTween.stop(), this.enlargeTween.start());
+      return this.dissolving ?
+        (this.enlargeTween.stop(), this.dissolveTween.start()) :
+        (this.dissolveTween.stop(), this.enlargeTween.start());
     }
   } //rotation on mouse click and drag
 
@@ -706,21 +716,21 @@ function startSphere() {
     var ee = document.body.appendChild(container);
     ee.addEventListener(
       "mousemove",
-      function(e) {
+      function (e) {
         onMouseMove(e);
       },
       false
     );
     ee.addEventListener(
       "mousedown",
-      function(e) {
+      function (e) {
         onMouseDown(e);
       },
       false
     );
     ee.addEventListener(
       "mouseup",
-      function(e) {
+      function (e) {
         onMouseUp(e);
       },
       false

@@ -7,6 +7,8 @@ node-modules
 /live-server
 babel.config.js
 .cache/
+engine/libs/yarn/
+static
 
 #parcelbuild ignore
 engine/polyapp.js
