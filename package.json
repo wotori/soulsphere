@@ -13,6 +13,11 @@
     "tween": "^0.9.0"
   },
   "scripts": {
-    "dev": "parcel ./index.htmlyarn dev"
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "devDependencies": {
+    "cssnano": "^5.0.5",
+    "postcss": "^8.2.15"
   }
 }
