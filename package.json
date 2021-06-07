@@ -7,8 +7,17 @@
   "author": "Sobolev Dmitry <dmsobolev@yahoo.com>",
   "license": "MIT",
   "dependencies": {
-    "jquery": "^3.5.1",
+    "@tweenjs/tween.js": "^17.3.0",
+    "jquery": "3.4.1",
     "three": "^0.118.3",
     "tween": "^0.9.0"
+  },
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "devDependencies": {
+    "cssnano": "^5.0.5",
+    "postcss": "^8.2.15"
   }
 }
