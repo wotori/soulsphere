@@ -1,14 +1,23 @@
 {
   "name": "soulsphere",
-  "version": "1.0.0",
+  "version": "0.0.9",
   "description": "users visualisation app",
   "main": "index.html",
   "repository": "https://github.com/wotori/soulsphere",
   "author": "Sobolev Dmitry <dmsobolev@yahoo.com>",
   "license": "MIT",
   "dependencies": {
+    "@tweenjs/tween.js": "^18.6.4",
     "jquery": "^3.5.1",
     "three": "^0.118.3",
-    "tween": "^0.9.0"
+    "tween": "^0.9.0",
+    "tweenjs": "^1.0.2"
+  },
+  "scripts": {
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }
