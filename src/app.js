@@ -15,7 +15,7 @@ let USERS
 let newFetchedPic = (index) => {
   let path_pic = "Frame-" + index
   console.log('user_path', pics[path_pic])
-  new THREE.TextureLoader().load(pics[path_pic]);
+  return new THREE.TextureLoader().load(pics[path_pic]);
 }
 console.log('loading pic')
 var timeNow = new Date();
