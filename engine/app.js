@@ -1,3 +1,7 @@
+import * as THREE from 'three'
+import TWEEN from '@tweenjs/tween.js';
+import $ from 'jquery';
+
 import { users_data } from './users_data'
 import * as users_pics from '../userdata/pic/*.png'
 // console.log(users_data, users_pics)
