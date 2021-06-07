@@ -3,6 +3,7 @@ import * as TWEEN from '@tweenjs/tween.js';
 import { camera } from './app'
 
 export class PlaneAvatar extends THREE.Mesh {
+
     constructor(Group, AnchorPointIndex, oINFO) {
         super(
             new THREE.CircleGeometry(0.35, 64, 64),
@@ -17,7 +18,7 @@ export class PlaneAvatar extends THREE.Mesh {
             audio: oINFO.audio ?
                 oINFO.audio :
                 "https://cdn.glitch.com/ff820234-7fc5-4317-a00a-ad183b72978d%2Fmoonlight.mp3?1512000557559"
-        }; // console.table(this.info)
+        }; 
 
         this.dissolving = true; //Dissolving by default
 
