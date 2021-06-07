@@ -3,23 +3,22 @@ import TWEEN from '@tweenjs/tween.js';
 import $ from 'jquery';
 
 import { users_data } from './users_data'
-import * as users_pics from '../userdata/pic/*.png'
+import * as users_pics from '../static/pic/*.png'
 // console.log(users_data, users_pics)
 
 
 
-const buildMsg = "brave new babel + antispasm";
+const buildMsg = "SoulSphere";
 console.log(
-  "%c BUILD %c" + buildMsg,
+  "%c Parcel %c" + buildMsg,
   "background: gold; color: darkgreen",
   "background: green; color: white"
-); //Fetch USERS and cache their pics
+);
 
-let USERS; //init Users
+let USERS;
 
 let newFetchedPic = (index) => {
   let pic_path = users_pics['Frame-' + index]
-  console.log(pic_path)
   return new THREE.TextureLoader().load(pic_path);
 }
 
@@ -33,7 +32,7 @@ function getUsers(data) {
   USERS.map((i) => {
     +i.pic >= 0 ? (i.fetchedPic = newFetchedPic(i.pic)) : void null
   }
-  ); //Cache for unexisting users
+  );
 
   const USERSexist = USERS.map(i => i.pic);
   console.time();
